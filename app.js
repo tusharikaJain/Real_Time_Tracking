@@ -15,8 +15,11 @@ app.set("view engine","ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
 io.on("connection", function(socket){
+    //console.log(`User connected: ${socket.id}`);
     socket.on("send-location",function(data){
-        io.emit("receive-location",{id: socket.id, ...data});
+       // console.log(`Location received from ${socket.id}:`, data);
+         io.emit("receive-location",{id: socket.id, ...data});
+      //socket.broadcast.emit("receive-location", { id: socket.id, ...data }); // Send to others, not self
     });
     //console.log("connected");
     
