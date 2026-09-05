@@ -18,15 +18,6 @@ if(navigator.geolocation){
     }
 )
 }*/
-// Simulated location updates (for testing different locations)
-setInterval(() => {
-    const latitude = 37.7749 + (Math.random() * 0.02 - 0.01);  // Example: San Francisco
-    const longitude = -122.4194 + (Math.random() * 0.02 - 0.01);
-    
-    console.log(`Simulated Location: ${latitude}, ${longitude}`);  // Debugging in console
-    socket.emit("send-location", { latitude, longitude });
-}, 5000);  // Sends a new location every 5 seconds
-
 
 const map =L.map("map").setView([0,0],16);
 
